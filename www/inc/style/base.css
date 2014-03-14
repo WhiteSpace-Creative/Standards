@@ -1,0 +1,165 @@
+/*! normalize.css v1.1.2 | MIT License | git.io/normalize */
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}audio,canvas,video{display:inline-block;*display:inline;*zoom:1}audio:not([controls]){display:none;height:0}[hidden]{display:none}html{font-size:100%;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}html,button,input,select,textarea{font-family:sans-serif}body{margin:0}a:focus{outline:thin dotted}a:active,a:hover{outline:0}h1{font-size:2em;margin:.67em 0}h2{font-size:1.5em;margin:.83em 0}h3{font-size:1.17em;margin:1em 0}h4{font-size:1em;margin:1.33em 0}h5{font-size:.83em;margin:1.67em 0}h6{font-size:.67em;margin:2.33em 0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:700}blockquote{margin:1em 40px}dfn{font-style:italic}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}mark{background:#ff0;color:#000}p,pre{margin:1em 0}code,kbd,pre,samp{font-family:monospace,serif;_font-family:'courier new',monospace;font-size:1em}pre{white-space:pre;white-space:pre-wrap;word-wrap:break-word}q{quotes:none}q:before,q:after{content:'';content:none}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}dl,menu,ol,ul{margin:1em 0}dd{margin:0 0 0 40px}menu,ol,ul{padding:0 0 0 40px}nav ul,nav ol{list-style:none;list-style-image:none}img{border:0;-ms-interpolation-mode:bicubic}svg:not(:root){overflow:hidden}figure{margin:0}form{margin:0}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0;white-space:normal;*margin-left:-7px}button,input,select,textarea{font-size:100%;margin:0;vertical-align:baseline;*vertical-align:middle}button,input{line-height:normal}button,select{text-transform:none}button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;*overflow:visible}button[disabled],html input[disabled]{cursor:default}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0;*height:13px;*width:13px}input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}textarea{overflow:auto;vertical-align:top}table{border-collapse:collapse;border-spacing:0}
+
+/* Basic Structure */
+
+
+.form label {
+	display: block;
+	width: 150px;
+	margin-right: 5px;
+	float: left;
+	clear: left;
+}
+
+.form p { overflow: visible; clear: both;  }
+
+.form .no-label { margin-left: 160px; display: block;}
+
+body .form .no-label label,
+body .form .group label {
+	width: auto;
+	margin-right: 0;
+	float: none;
+	display: inline;
+}
+
+.form fieldset { border: solid 1px #CCC; padding: 5px; margin-bottom: 1em; }
+.form legend { font-weight: bold; font-size: 14px; padding: 0 5px; }
+
+.customStyleSelectBox {
+     line-height: 14px;
+     font-size: 11px;
+     height: 14px;
+     border: 1px solid #c3d4c3;
+	 padding: 2px 30px 2px 5px;
+     background: #FFF url(../../elements/skin/btn_search.gif) center right no-repeat;
+     overflow: hidden;
+     white-space: nowrap;
+	 color: #aba59d;
+	 cursor: pointer;
+}
+
+.customStyleCheckBox { width: 12px; height: 12px; display: inline; background: #FFF url(../../elements/skin/checkbox.png) top left no-repeat; background-position: 0 0; outline: none; }
+.customStyleCheckBox.checkOn { background-position: 0 -12px; }
+
+
+.wf-loading * { opacity: 0; }
+.wf-active *,
+.wf-inactive * { opacity: 1; }
+.wf-active #content h1 { font-family: 'Varela Round', 'Lato', sans-serif; }
+
+a { text-decoration: none; color: #1e5eac; }
+
+/* -------------
+ * Error Messaging
+ * ------------- */
+.ok, .error, .info {
+	color:#333333;
+	padding: 5px 5px 5px 25px;
+	margin: 0;
+	display: block;
+}
+.ok {
+	background: #E5F1E8 url(../../elements/icon_ok.gif) no-repeat 5px 5px;
+	border-top: 2px solid #007520;
+	border-bottom: 2px solid #007520;
+	margin-bottom: 5px;
+
+}
+.error {
+	background: #F5E5E5 url(../../elements/icon_error.gif) no-repeat 5px 5px;
+	border-top: 2px solid #990000;
+	border-bottom: 2px solid #990000;
+	margin-bottom: 5px;
+}
+.info {
+	background: #dce6f3 url(../../elements/icon_info.png) no-repeat 5px 5px;
+	border-top: 2px solid #145bae;
+	border-bottom: 2px solid #145bae;
+	margin-bottom: 5px;
+}
+
+
+/* -------------
+ * Misc.
+ * ------------- */
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+.clearfix { display: inline-block; }
+html[xmlns] .clearfix { display: block; }
+* html .clearfix { height: 1%; }
+
+
+/* Remove the outline in FF */
+*|*:-moz-any-link:focus { outline: none !important; }
+
+
+.hide { display: none; }
+.invisible { visibility: hidden; }
+strong { font-weight: bold; }
+em { font-style: italic; }
+textarea { resize: vertical; }
+
+hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
+audio,
+canvas,
+img,
+video { vertical-align: middle; }
+
+::-moz-selection { background: #b3d4fc; text-shadow: none; }
+::selection { background: #b3d4fc; text-shadow: none; }
+
+
+/* Style adjustments for mobile (portrait) */
+@media only screen and (max-width : 480px) {
+#wrapper { margin: auto; width: auto; padding: 0 10px; }
+header .hotline { top: 70px; right: 10px; }
+header .search { display: none; }
+#content { height: auto; padding-top: 0; }
+/*
+header nav { top: 20px; right: 10px; left: auto; margin: 0; width: 45px; height: 35px; background: transparent url(../../elements/skin/mobile-menu.gif) no-repeat right center; outline: solid 1px red; }
+*/
+header .menu { position: absolute; z-index: 10; top: 20px; right: 10px; left: auto; margin: 0; width: 45px; height: 35px; background: #FFF url(../../elements/skin/mobile-menu.gif) no-repeat right center; }
+
+header nav { position: absolute; z-index: 10; top: 55px; right: 210px; left: auto; display: none; }
+header nav ul { width: 200px; position: absolute; z-index: 100; background: #FFF; text-align: right; padding-top: 10px; }
+header nav.hover,
+header nav:hover { display: block; }
+#wrapper header nav ul li a { display: block; width: 195px;  }
+#wrapper header nav ul li ul { display: none; }
+footer { height: 120px; bottom: -95px; }
+footer .vcard { margin-bottom: 0;}
+footer .copyright { float: left; margin-bottom: 1em; }
+
+}
+/* Style adjustments for mobile (landscape) */
+@media only screen and (min-device-width : 321px) {
+}
+
+/* Style adjustments for tablet(portrait) */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+}
+/* Style adjustments for tablet(landscape) */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+}
+
+/* 
+ * print styles
+ * inlined to avoid required HTTP connection www.phpied.com/delay-loading-your-print-css/ 
+ */
+@media print {
+  * { background: transparent !important; color: #444 !important; text-shadow: none !important; }
+  a, a:visited { color: #444 !important; text-decoration: underline; }
+  thead { display: table-header-group; } /* css-discuss.incutio.com/wiki/Printing_Tables */ 
+  tr, img { page-break-inside: avoid; }
+  @page { margin: 0.5cm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3{ page-break-after: avoid; }
+}
