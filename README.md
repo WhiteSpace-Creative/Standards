@@ -1,2 +1,2 @@
-standards
+Standards
 =========
