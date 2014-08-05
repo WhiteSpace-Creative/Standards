@@ -5,18 +5,50 @@
     \_/\_/  |_| |_|_|\__\___|____/| .__/ \__,_|\___\___|  \____|_|  \___|\__,_|\__|_| \_/ \___|
 	
 /* TEAM */
+Alan Ashby: Account Manager
 Amy Black: Graphic Designer
+Andi Jones: Director of Marketing
+Annie Murray: Copywriter
 Ashley Engelhardt: Graphic Designer
-Derek Stulpin: Senior Graphic Designer
+Ashley Hofbauer: Interactive Engagement Manager 
+Bethany English: Public Relations Coordinator
+Bob Zajac: Executive Vice President
+Brent Williams: Vice President, Interactive
+Cindy Berman Morrow: Public Relations Manager
+Craig Satow: Vice President
+David Dellosa: Graphic Designer
+Denise Copen: Account Manager
+Derek Stulpin: Art Director
+Eric Jacobs: Associate Creative Director
+Erin Monsman: Graphic Designer
+Eryn Peterson: Lead Graphic Designer
 Greg Kiskadden: Executive Vice President
 Hannah Moore: Executive Assistant
-Jeremy Toburen: Vice President of Operations
+Heather Evans: Account Supervisor
+Helen Davis: Account Manager
+Jen Snider: Vice President, Talent Development
+Jeremy Toburen: Vice President, Operations
+Jim Lightcap: Graphic Designer
+John Haselow: Senior Public Relations Specialist
+John Puglia: Vice President of Creative Services
 Katharine Penrod: Graphic Designer
-Kory Urban: Programmer
+Katie Lawton: Account Coordinator
+Keeven White: President/CEO
 Lauren Franko: Account Coordinator
-Leigh Greenfelder: Vice President of Public Relations
+Leigh Greenfelder: Vice President 
+Linda Nawrocki: Digital Strategist, SEO and Content 
+Linnea Zimmerman: Associate Creative Director
+Lyndsay Offenberger: Account Coordinator
 Melanie Miller: Receptionist
-Sean Mooney: Associate Director, Programming
+Melissa Olson: Graphic Designer
+Robbie Schneider: Interactive Developer
+Ross Horvath: Graphic Designer
+Sarah Cross: Project Manager
+Sean Mooney: Associate Director, Interactive Development
+Sharon Griffiths: Print Production Manager
+Stephanie Mathias: Public Relations Coordinator
+Susan Breen: Associate Creative Director, Design
+Tom Crilley: Public Relations Coordinator
 
 Site:	http://www.whitespace-creative.com
 Location: Akron, OH.

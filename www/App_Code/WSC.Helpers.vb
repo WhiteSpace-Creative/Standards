@@ -1,6 +1,8 @@
 ﻿Imports Microsoft.VisualBasic
 Imports umbraco.uicontrols
 Imports System.Reflection
+Imports System.IO
+Imports System.Data
 
 Namespace WSC
     Public Class Helpers
@@ -12,6 +14,15 @@ Namespace WSC
             Dim message As System.Net.Mail.MailMessage = template.CreateMailMessage(_from, d, New LiteralControl())
             Return message.Body.ToString()
         End Function
+		
+		Public Shared Sub WriteCSV(data As List(Of String), filePath As String)
+            Dim line As String = String.Join(",", data.Select(Function(s) String.Format("""{0}""", s.Replace("""", String.Empty))).ToArray())
+            '--Move form results to the shared directory
+            Dim FILENAME As String = HttpContext.Current.Server.MapPath(filePath)
+            Dim objStreamWriter As StreamWriter = File.AppendText(FILENAME)
+            objStreamWriter.WriteLine(line)
+            objStreamWriter.Close()
+        End Sub
 
         <AttributeUsage(AttributeTargets.All)> _
         Class MacroPropertyTypeAttribute
@@ -102,9 +113,26 @@ Namespace WSC
 
     Public MustInherit Class MacroBase
         Inherits System.Web.UI.UserControl
+        Property CurrentCulture As Globalization.CultureInfo = System.Threading.Thread.CurrentThread.CurrentUICulture
+        Property Culture As String = CurrentCulture.Name
+
+        Private SpamCheck As TextBox
+
         Overridable ReadOnly Property Title As String
             Get
                 Return Me.GetType.Name
+            End Get
+        End Property
+
+        ReadOnly Property IsSpam As Boolean
+            Get
+                Return Not String.IsNullOrEmpty(Me.SpamCheck.Text)
+            End Get
+        End Property
+
+        ReadOnly Property IsEditor() As Boolean
+            Get
+                Return (Request.ServerVariables("SCRIPT_NAME") = "/umbraco/macroResultWrapper.aspx")
             End Get
         End Property
 
@@ -114,8 +142,18 @@ Namespace WSC
             Return value
         End Function
 
+        Private Sub Page_Init1(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Init
+            Me.SpamCheck = New TextBox()
+            Me.SpamCheck.TextMode = TextBoxMode.MultiLine
+            Me.SpamCheck.ID = "txtComments2"
+            SpamCheck.Style.Value = "position:absolute;left:-99999px;"
+            If Not Me.IsEditor Then
+                Me.Controls.AddAt(0, Me.SpamCheck)
+            End If
+        End Sub
+
         Private Sub Page_Load1(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-            If (Request.ServerVariables("SCRIPT_NAME") = "/umbraco/macroResultWrapper.aspx") Then
+            If (Me.IsEditor) Then
                 Me.Controls.Clear()
                 Dim sb As New StringBuilder()
                 Dim myType As Type = Me.GetType()
