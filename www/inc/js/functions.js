@@ -30,37 +30,37 @@ $.fn.extend({
 		}).blur(function(e){ tip.hide(); });
 		return this;
 	},
-	customSelect : function(options) {
+	customInput : function(options) {
 		if(!$.browser.msie || ($.browser.msie && $.browser.version>6)){
 			return this.each(function() {
 				var $this = $(this);
 				if ($this.data('styled')){ return; }
 				$this.data('styled', true);
-				var currentSelected = $this.find(':selected');
-				$this.after('<span class="customStyleSelectBox">'+ currentSelected.text() +'</span>').css({position:'absolute', opacity:0});
-				var selectBoxSpan = $this.next().click(function(){ $this.focus(); });
-				selectBoxSpan.css({display:'inline-block'});
-				$this.width(selectBoxSpan.outerWidth(false)).bind('change update', function(){
-					selectBoxSpan.text($this.find(':selected').text());
-					$this.width(selectBoxSpan.outerWidth(false));
-				}).focus(function() { $this.next().addClass('focus'); }).blur(function() { $this.next().removeClass('focus'); });
-			});
-		}
-		return this;
-	},
-	customCheck : function(options) {
-		if(!$.browser.msie || ($.browser.msie && $.browser.version>6)){
-			return this.each(function() {
-				var $this = $(this);
-				if ($this.data('styled')){ return; }
-				$this.data('styled', true);
-				$this.css({position:'absolute',margin:0,opacity:0}).after('<span class="customStyleCheckBox checkOff">&nbsp;</span>');
-				var checkBoxImg = $this.next().css({display:'inline-block'});
-				$this.width(checkBoxImg.outerWidth(false)).height(checkBoxImg.outerHeight(false)).change(function(){
-					checkBoxImg.removeClass('checkOff checkOn');
-					if ($this.attr('checked')) { checkBoxImg.addClass('checkOn'); } 
-					else { checkBoxImg.addClass('checkOff'); }
-				}).focus(function() { checkBoxImg.addClass('focus'); }).blur(function() { checkBoxImg.removeClass('focus'); }).triggerHandler('change');
+				
+				$this.wrap('<span class="custom-'+ (this.type ? this.type : this.tagName.toLowerCase()) +'" />');
+				
+				if (this.tagName.toLowerCase().indexOf('select') >= 0){
+					var currentSelected = $this.find(':selected');
+					$this.parent().append('<span>'+ currentSelected.text() +'</span>');
+					var text = $this.next();
+					$this.bind('change update', function(){
+						text.text($this.find(':selected').text());
+					});
+				}
+				else {
+					$this.on('change', function(){
+						if (this.type.toLowerCase() == 'radio'){
+							$('input[type="radio"][name="'+ this.name +'"]').each(function(index,element){ $(this).parent().removeClass('checked'); });
+						}
+						else {
+							$this.parent().removeClass('checked');
+						}
+						if ($this.attr('checked')) {  $this.parent().addClass('checked'); } 
+					}).
+					focus(function() { $this.parent().addClass('focus'); }).
+					blur(function() { $this.parent().removeClass('focus'); });
+					if ($this.attr('checked')) {  $this.parent().addClass('checked'); }
+				}				
 			});
 		}
 		return this;
