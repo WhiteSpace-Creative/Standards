@@ -1,7 +1,8 @@
 ﻿Imports System.Net.Mail
+Imports System.Data
 
 Partial Class usercontrols_ContactUs
-    Inherits WSC.MacroBase
+        Inherits WSC.MacroBase
 
     Private _EmailTo As String
     Public Property EmailTo() As String
@@ -58,25 +59,33 @@ Partial Class usercontrols_ContactUs
 
     Protected Sub btnSubmit_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnSubmit.Click
         If Not Page.IsValid Then Return
+        If Me.IsSpam Then Return
 
         '--Build the email
-        Dim data As ListDictionary = New ListDictionary
-        data.Add("<%Name%>", txtFirstName.Text & " " & txtLastName.Text)
-        data.Add("<%Email%>", txtEmail.Text)
-        data.Add("<%Company%>", txtCompany.Text)
-        data.Add("<%Phone%>", txtPhone.Text)
-        data.Add("<%Zip%>", txtZip.Text)
-        data.Add("<%Comments%>", txtComments.Text)
-
-        Dim strEmailBody As String = WSC.Helpers.BuildEmail("/inc/email_templates/ContactUs.html", data)
+        Dim sRow As String = "<tr><td valign=""top"" style=""width: 150px; padding: 0 0 10px;""><strong>{0}</strong></td><td valign=""top"" style=""padding: 0 0 10px;"">{1}</td></tr>"
+		Dim sbMsg As New StringBuilder()
+		sbMsg.Append("<html><body><table>")
+        sbMsg.AppendFormat(sRow, "Name:", txtFirstName.Text & " " & txtLastName.Text)
+        sbMsg.AppendFormat(sRow, "Email:", txtEmail.Text)
+		sbMsg.AppendFormat(sRow, "Company:", txtCompany.Text)
+		sbMsg.AppendFormat(sRow, "Phone:", txtPhone.Text)
+		sbMsg.AppendFormat(sRow, "State:", ddlState.SelectedValue.ToString())
+        sbMsg.AppendFormat(sRow, "Zip:", txtZip.Text)
+		sbMsg.AppendFormat(sRow, "Comments:", ReplaceLineBreaks(txtComments.Text))
+		sbMsg.Append("</table></body></html>")
+		
         '--Send out Email to Owners website.
         Dim msg As New MailMessage(Me.EmailFrom, Me.EmailTo)
         msg.Subject = Me.EmailSubject
-        msg.Body = strEmailBody
+        msg.Body = sbMsg.ToString()
         msg.IsBodyHtml = True
         Dim smtp As New SmtpClient()
         smtp.Send(msg)
 
         Response.Redirect(umbraco.library.NiceUrl(Me.Redirect))
     End Sub
+
+	Protected Function ReplaceLineBreaks(input As String) As String
+		Return umbraco.library.ReplaceLineBreaks(input)
+	End Function
 End Class
