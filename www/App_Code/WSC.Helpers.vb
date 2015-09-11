@@ -146,6 +146,7 @@ Namespace WSC
             Me.SpamCheck = New TextBox()
             Me.SpamCheck.TextMode = TextBoxMode.MultiLine
             Me.SpamCheck.ID = "txtComments2"
+			Me.SpamCheck.TabIndex = -1
             SpamCheck.Style.Value = "position:absolute;left:-99999px;"
             If Not Me.IsEditor Then
                 Me.Controls.AddAt(0, Me.SpamCheck)

@@ -22,7 +22,7 @@ $.fn.extend({
 		var options = $.extend(defaults, options);
 		var tip = $('#'+ options.id);
 		if (tip.length === 0){ tip = $('<div id="'+ options.id +'"><div /><span /></div>').css({'position': 'absolute','z-index': 1000 }).appendTo('body').hide(); }
-		$(':input[placeholder!=""]', this).focus(function (e) {
+		$(':input[placeholder][placeholder!=""]', this).focus(function (e) {
 			var input = $(this);
 			var inputWidth = input.outerWidth();
 			var inputHeight = input.outerHeight();
