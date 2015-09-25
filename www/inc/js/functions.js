@@ -67,11 +67,11 @@ $.fn.extend({
 						else {
 							$this.parent().removeClass('checked');
 						}
-						if ($this.attr('checked')) {  $this.parent().addClass('checked'); } 
+						if ($this.is(':checked')) {  $this.parent().addClass('checked'); } 
 					}).
 					focus(function() { $this.parent().addClass('focus'); }).
 					blur(function() { $this.parent().removeClass('focus'); });
-					if ($this.attr('checked')) {  $this.parent().addClass('checked'); }
+					if ($this.is(':checked')) {  $this.parent().addClass('checked'); }
 				}				
 			});
 		}
