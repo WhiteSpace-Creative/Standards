@@ -59,6 +59,13 @@ $.fn.extend({
 						text.text($this.find(':selected').text());
 					});
 				}
+				else if ($this.attr('type') == 'file') {
+					$this.parent().append('<input class="fake-file" disabled="disabled" />');
+					var text = $this.next();
+					$this.bind('change update', function(){
+						text.val($this.val().split('\\').pop());
+					});				
+				}
 				else {
 					$this.on('change', function(){
 						if (this.type.toLowerCase() == 'radio'){

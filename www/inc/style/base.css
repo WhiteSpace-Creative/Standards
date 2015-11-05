@@ -24,6 +24,12 @@ background: #FFF  url("data:image/gif;base64,R0lGODdhIwAbAPUiAP////j7/Pf7/BWBqz6
 .custom-checkbox.checked { background-position: -15px 0; }
 .custom-radio { background: transparent url("data:image/gif;base64,R0lGODdhHgAPAPQeAJWVlfv7+8nJyaSkpP7+/vT09N3c3MzKyuno6NTS0q2trfr6+peXl/b19fLx8evr68fFxaOjo9vZ2crKys3Ly9TT097d3ejn5/n5+fHx8drZ2cjGxuzr6/////X19QAAACwAAAAAHgAPAAAFvWAndplGbZSWjSxpomrbeVbFYQTGVZbH0jacjucTFTYXWeeyKRiRSqazY0AoRQiDqNoJCAaMgSDQyXYciesokUF3FYB4XEFmSx5qEUdz7wjkgBMdewcLeR0YFIUdA4ByEYgUEIcdBBuTHQyOcQyVG4t5iYuNm5CJGhyHe6h+mwACgyoVhxUZGbMBcIB0HbUdFklXFxYiwF1fYWNLxB0NUDJMDSLOwS3RI0A3OTs9PzXaQ90tJScpK0rkMOciIQA7") no-repeat left top; }
 .custom-checkbox { background: transparent url("data:image/gif;base64,R0lGODdhHgAPAPEAAJWVlcfFxf///wAAACwAAAAAHgAPAAACP4yPqXviD5+J1M0aL5ZhwwuEomh1XumMKnoKoEq65vnCAEubdoh7Ndzb/FayVlGwux1zqV0Qo/HNpEaG9YooAAA7") no-repeat left top; }
+.custom-file { position: relative; z-index: 1; display: inline-block; width: 100%; }
+.custom-file { position: relative; z-index: 1; display: inline-block; width: 100%; }
+.custom-file:after { content: 'Browse'; color: #000; background-color:#FFF; border: solid 2px currentColor; text-transform: uppercase; display: block; padding: 0 6px; line-height: 25px; position: absolute; z-index: 1; right:0; top:0; bottom:0; }
+.custom-file input[type=file] { outline:none; position: absolute; z-index: 2; opacity:0; top:0; right:0; bottom:0; left:0; width: 100%; }
+.custom-file .fake-file { font-size:16px; width: 100%; border: solid 1px #000; padding: 0 3px; line-height: 27px; background-color: transparent; height: 27px; }
+
 
 .cols { overflow: hidden; }
 .cols:after { content: ''; display: table; clear: both; }
