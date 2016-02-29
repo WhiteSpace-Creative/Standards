@@ -1,22 +1,62 @@
+/*
 WebFont.load({
 	google: { families: [] }
 });
+*/
 /*! jquery.cookie v1.4.0 | MIT */
 !function(a){"function"==typeof define&&define.amd?define(["jquery"],a):a(jQuery)}(function(a){function b(a){return h.raw?a:encodeURIComponent(a)}function c(a){return h.raw?a:decodeURIComponent(a)}function d(a){return b(h.json?JSON.stringify(a):String(a))}function e(a){0===a.indexOf('"')&&(a=a.slice(1,-1).replace(/\\"/g,'"').replace(/\\\\/g,"\\"));try{a=decodeURIComponent(a.replace(g," "))}catch(b){return}try{return h.json?JSON.parse(a):a}catch(b){}}function f(b,c){var d=h.raw?b:e(b);return a.isFunction(c)?c(d):d}var g=/\+/g,h=a.cookie=function(e,g,i){if(void 0!==g&&!a.isFunction(g)){if(i=a.extend({},h.defaults,i),"number"==typeof i.expires){var j=i.expires,k=i.expires=new Date;k.setDate(k.getDate()+j)}return document.cookie=[b(e),"=",d(g),i.expires?"; expires="+i.expires.toUTCString():"",i.path?"; path="+i.path:"",i.domain?"; domain="+i.domain:"",i.secure?"; secure":""].join("")}for(var l=e?void 0:{},m=document.cookie?document.cookie.split("; "):[],n=0,o=m.length;o>n;n++){var p=m[n].split("="),q=c(p.shift()),r=p.join("=");if(e&&e===q){l=f(r,g);break}e||void 0===(r=f(r))||(l[q]=r)}return l};h.defaults={},a.removeCookie=function(b,c){return void 0!==a.cookie(b)?(a.cookie(b,"",a.extend({},c,{expires:-1})),!0):!1}});
 $(function(){
-	$('iframe[src*="//www.youtube.com"]').each(function(index, element) {
-		element = $(element);
-		var width = element.attr('width');
-		var height = element.attr('height');
-		element.attr('data-aspectRatio', height / width)
-		.removeAttr('height')
-		.removeAttr('width')
-		.wrap('<div class="videoWrapper" style="max-width: '+ width +'px" />');
-    });
+	$('#content iframe[src*="//www.youtube.com"]').mediaWrapper();
+	$('#content table').mobileTable();
+	$('#content .tabs').tabs();
 	
 	//$('body').placeholderTip();
 });
 $.fn.extend({
+	tabs: function(){
+		var container = $(this);
+		var tabs = $('li', this);
+		var panes = container.next().find('.pane');
+		
+		container.on('click', 'a', function(e){
+			e.preventDefault();
+			var index = tabs.index($(this).parent());
+			tabs.removeClass('active').eq(index).addClass('active');
+			panes.removeClass('active').eq(index).addClass('active');
+		});
+		
+		tabs.first().find('a').click();
+		
+	},
+	mobileTable: function(){
+		return $(this).each(function() {
+            var header = $('tr:first > *', this);
+			$('tr', this).each(function() {
+				$('td', this).each(function(index, element) {
+					$(this).attr('data-title', header.eq(index).text());                    
+                });
+            });
+        });
+	},
+	mediaWrapper: function(options) {
+		// mediaWrapper.js: Simple responsive iframes
+		// MIT license http://www.opensource.org/licenses/mit-license.php/
+		// @author Matthew A. K. Smith http://www.akselkreismedia.com
+		var settings = $.extend( {
+			intrinsic   : true,
+			baseWidth   : 16,
+			baseHeight  : 9
+		}, options);		
+		return this.each(function() {
+			var hRatio = '';			
+			if (settings.intrinsic == true && $(this).attr("width") !== '' && $(this).attr("height") !== ''){
+				hRatio = ($(this).attr("height") / $(this).attr("width")) * 100;
+			} else {
+				hRatio = (settings.baseHeight / settings.baseWidth) * 100;
+			}			
+			$(this).wrap('<div class="mediaWrapper" style="position: relative; width: 100%; height: 0; padding: '+ hRatio +'% 0 0 0; " />').css({"position":"absolute","width":"100%","height":"100%","top":"0","left":"0"});
+		});
+	},
 	placeholderTip: function(options){
 		var defaults = {offset: 5, id: 'placeholder-tip', cssClass: '', cloneStyles: ['font-weight','font-size','font-family','line-height', 'padding', 'border', 'outline','margin']};
 		var options = $.extend(defaults, options);
