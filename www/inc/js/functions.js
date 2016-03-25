@@ -24,9 +24,7 @@ $.fn.extend({
 			tabs.removeClass('active').eq(index).addClass('active');
 			panes.removeClass('active').eq(index).addClass('active');
 		});
-		
 		tabs.first().find('a').click();
-		
 	},
 	mobileTable: function(){
 		return $(this).each(function() {
