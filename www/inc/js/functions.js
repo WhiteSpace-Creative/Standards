@@ -93,14 +93,14 @@ $.fn.extend({
 					var currentSelected = $this.find(':selected');
 					$this.parent().append('<span>'+ currentSelected.text() +'</span>');
 					var text = $this.next();
-					$this.bind('change update', function(){
+					$this.on('change update', function(){
 						text.text($this.find(':selected').text());
 					});
 				}
 				else if ($this.attr('type') == 'file') {
 					$this.parent().append('<input class="fake-file" disabled="disabled" />');
 					var text = $this.next();
-					$this.bind('change update', function(){
+					$this.on('change update', function(){
 						text.val($this.val().split('\\').pop());
 					});				
 				}
@@ -113,11 +113,12 @@ $.fn.extend({
 							$this.parent().removeClass('checked');
 						}
 						if ($this.is(':checked')) {  $this.parent().addClass('checked'); } 
-					}).
-					focus(function() { $this.parent().addClass('focus'); }).
-					blur(function() { $this.parent().removeClass('focus'); });
+					});
 					if ($this.is(':checked')) {  $this.parent().addClass('checked'); }
-				}				
+				}
+				
+				$this.on('focus', function(e) { $this.parent().addClass('focus'); }).
+					  on('blur', function(e) { $this.parent().removeClass('focus'); });
 			});
 		}
 		return this;
