@@ -1,20 +1,19 @@
-<!doctype html>  
-<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<!doctype html>
+<html lang="en" class="no-js">
 <head runat="server">
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>Untitled Document</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="inc/style/base.css" rel="stylesheet" type="text/css" />
-    <link href="inc/style/home.css" rel="stylesheet" type="text/css" />
+    <!--<link href="inc/style/home.css" rel="stylesheet" type="text/css" />-->
     <style type="text/css">
     <!--
     /* Basic Structure */
     -->
     </style>
-	<script src="http://ajax.googleapis.com/ajax/libs/webfont/1.5.10/webfont.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.0/jquery-migrate.min.js"></script><!-- Remove After DEV -->
     <script src="inc/js/modernizr.min.js"></script>
     <script>window.jQuery || document.write('<script src="/inc/js/jquery.min.js"><\/script>')</script>
     <script src="inc/js/functions.js"></script>
@@ -29,11 +28,34 @@
     	<a href="/" class="logo">Company Name</a>
     	<nav role="navigation">
         	<ul class="navigation">
-            	<li><a href="#">Link One</a></li>
+            	<li><a href="#">Link One</a>
+                	<ul>
+                        <li><a href="#">Link One A</a>
+                        	<ul>
+                                <li><a href="#">Link One A.1</a></li>
+                                <li><a href="#">Link One A.2</a></li>
+                                <li><a href="#">Link One A.3</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Link One B</a></li>
+                        <li><a href="#">Link One C</a></li>
+                    </ul>
+                </li>
             	<li><a href="#">Link Two</a></li>
             	<li><a href="#">Link Three</a></li>
             </ul>
         </nav>
+        <ul class="social-media">
+        	<li class="facebook"><a href="#" target="_blank">Facebook</a></li>
+        	<li class="instagram"><a href="#" target="_blank">Instagram</a></li>
+        	<li class="linkedin"><a href="#" target="_blank">LinkedIn</a></li>
+        	<li class="twitter"><a href="#" target="_blank">Twitter</a></li>
+        	<li class="youtube"><a href="#" target="_blank">YouTube</a></li>
+        </ul>
+        <form class="search">
+        	<input type="text" name="q" placeholder="Search" />
+            <input type="submit" value="Search" />
+        </form>
     </header>
     <main role="main">
     	<aside>
@@ -42,6 +64,17 @@
         </article>
     </main>    
     <footer role="contentinfo">
+    	<div class="organization" itemscope="" itemtype="http://schema.org/Organization">
+            <div itemprop="name">Company Name</div>
+            <div itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
+                <div itemprop="streetAddress">Address</div>
+                <span itemprop="addressLocality">City</span>,
+                <span itemprop="addressRegion">State</span>
+                <span itemprop="postalCode">Postal Code</span>
+                <div><span itemprop="telephone">Phone</span></div>
+                <div><span itemprop="faxNumber">Fax</span></div>
+            </div>
+        </div>    
     </footer>
     <!--<img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" name="spacer" />-->
 </div>

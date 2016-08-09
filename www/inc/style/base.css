@@ -3,7 +3,23 @@ progress,sub,sup{vertical-align:baseline}html{font-family:sans-serif;-ms-text-si
 
 /* Basic Structure */
 html * { box-sizing: border-box; }
+body { font-size: 1em; line-height: 1.5; }
 
+ul.navigation,
+ul.navigation ul,
+ul.navigation li,
+ul.social-media,
+ul.social-media li { list-style: none; margin: 0; padding: 0; }
+
+.social-media {}
+.social-media li { display: inline; }
+.social-media li a { display: inline-block; height: 40px; width: 40px; background: transparent url(../../elements/skin/social-media.png) no-repeat left top; text-indent: -9999px; margin: 0 6px; }
+.social-media .facebook a { background-position: 0 0; }
+.social-media .instagram a { background-position: 0 0; }
+.social-media .linkedin a { background-position: 0 0; }
+.social-media .pinterest a { background-position: 0 0; }
+.social-media .twitter a { background-position: 0 0; }
+.social-media .youtube a { background-position: 0 0; }
 
 .form label { display: block; }
 .form input[type="text"],

@@ -146,6 +146,8 @@ Namespace WSC
             Me.SpamCheck = New TextBox()
             Me.SpamCheck.TextMode = TextBoxMode.MultiLine
             Me.SpamCheck.ID = "txtComments2"
+			Me.SpamCheck.ClientIDMode = UI.ClientIDMode.Static
+            Me.SpamCheck.Attributes.Add("autocomplete", "false")
 			Me.SpamCheck.TabIndex = -1
             SpamCheck.Style.Value = "position:absolute;left:-99999px;"
             If Not Me.IsEditor Then
