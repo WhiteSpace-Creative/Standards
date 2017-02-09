@@ -60,7 +60,8 @@ Namespace WSC.Modules
             End Sub
 
             Private _sink As Stream
-            Private Shared reg As New Regex("(?<=[^])\t{2,}|(?<=[>])\s{2,}(?=[<])|(?<=[>])\s{2,11}(?=[<])|(?=[\n])\s{2,}")
+            'Private Shared reg As New Regex("(?<=[^])\t{2,}|(?<=[>])\s{2,}(?=[<])|(?<=[>])\s{2,11}(?=[<])|(?=[\n])\s{2,}")
+			Private Shared reg As New Regex("\s*(<[^>]+>)\s*")
 
 #Region "Properites"
 
@@ -127,7 +128,8 @@ Namespace WSC.Modules
                 Buffer.BlockCopy(buffer__1, offset, data, 0, count)
                 Dim html As String = System.Text.Encoding.[Default].GetString(buffer__1)
 
-                html = reg.Replace(html, String.Empty)
+                'html = reg.Replace(html, String.Empty)
+				html = reg.Replace(html, "$1")
 
                 Dim outdata As Byte() = System.Text.Encoding.[Default].GetBytes(html)
                 _sink.Write(outdata, 0, outdata.GetLength(0))

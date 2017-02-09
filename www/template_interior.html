@@ -11,14 +11,9 @@
     /* Basic Structure */
     -->
     </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.0/jquery-migrate.min.js"></script><!-- Remove After DEV -->
-    <script src="inc/js/modernizr.min.js"></script>
-    <script>window.jQuery || document.write('<script src="/inc/js/jquery.min.js"><\/script>')</script>
-    <script src="inc/js/functions.js"></script>
 </head>
 
-<body>
+<body class="type-textpage">
 <!--[if lt IE 8]>
     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
@@ -27,43 +22,56 @@
     	<!-- Copy From template_home.html -->    	
     </header>
     <main role="main">
-    	<aside>
-        </aside>
-    	<article role="article">
-        	<h1>Heading One</h1>
-            <h2>Heading Two</h2>
-            <p><a href="#">Nunc auctor bibendum eros.</a> Maecenas porta accumsan mauris. Etiam enim enim, elementum sed, bibendum quis, rhoncus non, metus. Fusce neque dolor, adipiscing sed, consectetuer et, lacinia sit amet, quam. Suspendisse wisi quam, consectetuer in, blandit sed, suscipit eu, eros. Etiam ligula enim, tempor ut, blandit nec, mollis eu, lectus. Nam cursus. Vivamus iaculis. Aenean risus purus, pharetra in, blandit quis, gravida a, turpis. Donec nisl. Aenean eget mi. Fusce mattis est id diam. Phasellus faucibus interdum sapien. Duis quis nunc. Sed enim.</p>
-            <p>Nunc auctor bibendum eros. Maecenas porta accumsan mauris. Etiam enim enim, elementum sed, bibendum quis, rhoncus non, metus. Fusce neque dolor, adipiscing sed, consectetuer et, lacinia sit amet, quam. Suspendisse wisi quam, consectetuer in, blandit sed, suscipit eu, eros. Etiam ligula enim, tempor ut, blandit nec, mollis eu, lectus. Nam cursus. Vivamus iaculis. Aenean risus purus, pharetra in, blandit quis, gravida a, turpis. Donec nisl. Aenean eget mi. Fusce mattis est id diam. Phasellus faucibus interdum sapien. Duis quis nunc. Sed enim.</p>
-            <h3>Heading Three</h3>
-            <ul>
-                <li>Bullet</li>
-                <li>Bullet</li>
-                <li>Bullet</li>
-                <li>Bullet</li>
-            </ul>
-        	
-            <div class="form">
-            	<p>
-                    <label>Name</label>
-                    <input type="text" />
-                </p>
-                <p>
-                    <label>State</label>
-                    <select>
-                    	<option>Please Choose...</option>
-                    </select>
-                </p>
-                <p>
-                    <label>Comments</label>
-                    <textarea></textarea>
-                </p>
-            </div>
-        </article>
+    	<div class="container">
+			<aside>
+			</aside>
+			<article role="article">
+				<h1>Heading One</h1>
+				<h2>Heading Two</h2>
+				<p><a href="#">Nunc auctor bibendum eros.</a> Maecenas porta accumsan mauris. Etiam enim enim, elementum sed, bibendum quis, rhoncus non, metus. Fusce neque dolor, adipiscing sed, consectetuer et, lacinia sit amet, quam. Suspendisse wisi quam, consectetuer in, blandit sed, suscipit eu, eros. Etiam ligula enim, tempor ut, blandit nec, mollis eu, lectus. Nam cursus. Vivamus iaculis. Aenean risus purus, pharetra in, blandit quis, gravida a, turpis. Donec nisl. Aenean eget mi. Fusce mattis est id diam. Phasellus faucibus interdum sapien. Duis quis nunc. Sed enim.</p>
+				<p>Nunc auctor bibendum eros. Maecenas porta accumsan mauris. Etiam enim enim, elementum sed, bibendum quis, rhoncus non, metus. Fusce neque dolor, adipiscing sed, consectetuer et, lacinia sit amet, quam. Suspendisse wisi quam, consectetuer in, blandit sed, suscipit eu, eros. Etiam ligula enim, tempor ut, blandit nec, mollis eu, lectus. Nam cursus. Vivamus iaculis. Aenean risus purus, pharetra in, blandit quis, gravida a, turpis. Donec nisl. Aenean eget mi. Fusce mattis est id diam. Phasellus faucibus interdum sapien. Duis quis nunc. Sed enim.</p>
+				<h3>Heading Three</h3>
+				<h4>Heading Four</h4>
+				<ul>
+					<li>Bullet</li>
+					<li>Bullet</li>
+					<li>Bullet</li>
+					<li>Bullet</li>
+				</ul>
+
+				<div class="form">
+					<p>
+						<label>Name</label>
+						<input type="text" />
+					</p>
+					<p>
+						<label>State</label>
+						<select>
+							<option>Please Choose...</option>
+						</select>
+					</p>
+					<p>
+						<label>Comments</label>
+						<textarea></textarea>
+					</p>
+					<p>
+						<label><input type="checkbox" /> Checkbox</label>
+					</p>
+					<p>
+						<label><input type="radio" /> Checkbox</label>
+					</p>
+					<p>
+						<input type="submit" class="button" value="Submit" />
+					</p>
+				</div>
+			</article>
+		</div>
     </main>    
     <footer role="contentinfo">
     	<!-- Copy From template_home.html -->    	
     </footer>
     <!--<img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" name="spacer" />-->
 </div>
+<script data-main="inc/js/main" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.2/require.min.js"></script>
 </body>
 </html>
