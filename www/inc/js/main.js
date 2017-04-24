@@ -4,12 +4,21 @@ var WSC = WSC || {}
 WSC.loadCss = loadCss;
 WSC.slickDefaults = { dotsClass: 'slick-dots unstyled' };
 
+document.documentElement.classList.remove('no-js');
+
+// convert Google Maps into an AMD module
+define('gmaps', ['async!http://maps.google.com/maps/api/js?sensor=false'], function(){
+    // return the gmaps namespace for brevity
+    return window.google.maps;
+});
+
 requirejs.config({
     baseUrl: 'inc/js',
     paths: {
 		'jquery': ['https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min', 'jquery.min'],
 		'jquery.mmenu': 'https://cdnjs.cloudflare.com/ajax/libs/jQuery.mmenu/5.7.0/js/jquery.mmenu.all.min',
-		'jquery.slick': 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min'
+		'jquery.slick': 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min',
+		'async': 'https://cdnjs.cloudflare.com/ajax/libs/requirejs-async/0.1.1/async'
     },
 	shim: {
 		'jquery.slick': { 
@@ -32,8 +41,6 @@ require(['global']);
 
 /* Page scripts */
 if(hasClass(document.body, 'type-homepage')){ require(['homepage']); }
-if(hasClass(document.body, 'node-1211')){ require(['contact']); }	
-if(hasClass(document.body, 'type-grantrecipients')){ require(['grant-recipients']); }	
 if (document.querySelectorAll('.bios').length > 0){ require(['bios']); }
 
 // Avoid 'console' errors in browsers that lack a console.
